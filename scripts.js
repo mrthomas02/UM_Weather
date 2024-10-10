@@ -1,4 +1,4 @@
-const apiKey = 'df96c405c838d91f327a0bd7f418fbae'; // Replace this with your OpenWeatherMap API key
+const apiKey = 'df96c405c838d91f327a0bd7f418fbae';
 const submitBtn = document.getElementById('submit-btn');
 const cityInput = document.getElementById('city-input');
 const locationDisplay = document.getElementById('location');
@@ -8,7 +8,7 @@ const weatherIconDisplay = document.getElementById('weather-icon');
 const errorMessage = document.getElementById('error-message');
 
 submitBtn.addEventListener('click', () => {
-    const city = cityInput.value.trim(); // Trim any extra spaces
+    const city = cityInput.value.trim();
     if (city) {
         console.log(`City entered: ${city}`);
         getWeatherData(city);
@@ -26,7 +26,6 @@ async function getWeatherData(city) {
         const response = await fetch(apiURL);
         
         if (!response.ok) {
-            // Handle different error status codes
             if (response.status === 404) {
                 throw new Error('City not found. Please check the name and try again.');
             } else {
@@ -44,17 +43,13 @@ async function getWeatherData(city) {
 }
 
 function displayWeatherData(data) {
-    errorMessage.textContent = ''; // Clear any error messages
+    errorMessage.textContent = '';
 
-    // Display city and country name
     locationDisplay.textContent = `${data.name}, ${data.sys.country}`;
     
-    // Display temperature in Celsius
     temperatureDisplay.textContent = `Temperature: ${data.main.temp} °C`;
     
-    // Display weather description (e.g., "Sunny", "Cloudy")
     descriptionDisplay.textContent = `Weather: ${data.weather[0].description}`;
     
-    // Display weather icon
     weatherIconDisplay.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 }
