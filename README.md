@@ -21,7 +21,7 @@ This Weather App is a web-based application that allows users to enter a city na
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/weather-app.git
+   git clone https://github.com/mrthomas02/weather-app.git
 
 2. Navigate to the project directory:
    ```bash
